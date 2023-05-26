@@ -238,6 +238,11 @@
         width: 500px;
 
     }
+
+    .search-wraper {
+        display: flex;
+        flex-direction: column;
+    }
 </style>
 
 </html>
