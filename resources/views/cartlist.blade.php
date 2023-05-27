@@ -1,8 +1,10 @@
 @extends('master')
 @section('content')
-<h1>Cart Items</h1>
+<h1>Cart List</h1>
 <div class="container">
+    <a class="btn btn-primary" href="/order">order</a><br>
     <div class="row">
+
         @foreach($data as $key => $items)
         <div class="col-sm-4">
             <a href="detail/{{$items->id}}">
@@ -18,6 +20,7 @@
         </div>
         @endforeach
     </div>
+    <a class="btn btn-primary" href="/order">order</a><br>
 </div>
 
 

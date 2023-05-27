@@ -13,10 +13,10 @@ class productController extends Controller
     //
     function index()
     {
-        $product = product::all()->toArray();
+        $product = product::all();
         // dd($product);
-        // return view('product', ['product' => $data]);
-        return view('product', compact('product'));
+        return view('product', ['product' => $product]);
+        // return view('product', compact('product'));
     }
 
     function detail($id)
@@ -62,5 +62,14 @@ class productController extends Controller
     {
         echo Cart::destroy($id);
         return redirect('cartlist');
+    }
+    function orderNow()
+    {
+        $user_id = session()->get('user')['id'];
+        $data = DB::table('cart')
+            ->join('products', 'cart.product_id', 'products.id')
+            ->where('cart.user_id', $user_id)
+            ->sum('products.price');
+        return view('order', compact('data'));
     }
 }
