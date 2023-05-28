@@ -31,3 +31,5 @@ Route::post('add_to_cart', [productController::class, 'AddToCart']);
 Route::get('cartlist', [productController::class, 'cartlist']);
 Route::get('removeCart/{ids}', [productController::class, 'removeCart']);
 Route::get('order', [productController::class, 'orderNow']);
+Route::post('orderplace', [productController::class, 'orderPlace']);
+Route::get('myorder', [productController::class, 'myOrder']);
